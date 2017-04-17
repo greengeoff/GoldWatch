@@ -4,8 +4,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -36,7 +34,7 @@ public class GoldPriceService extends IntentService {
         final RemoteViews remoteViews = new RemoteViews(getBaseContext().getPackageName(), R.layout.goldwatch_appwidget);
         final ComponentName thisWidget = new ComponentName(getBaseContext(), GoldWatchAppWidgetProvider.class);
         System.out.println("in gold service");
-        String url = "http://www.kitco.com/charts/livegold.html";
+        String url = "http://www.<gold price - hidden for privacy>"; // replace with your own
         String price = "0";
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd HH:mm");
@@ -47,7 +45,7 @@ public class GoldPriceService extends IntentService {
         try {
             final Document doc = Jsoup.connect(url).get();
             System.out.println(doc.text());
-            price = doc.select("span#sp-bid").text();
+            price = doc.select("#goldPriceTag").text();    // replace with correct css selector/html tag - like jquery
 
             System.out.println("price: " + price);
             remoteViews.setTextViewText(R.id.textView, "$ " + price);
