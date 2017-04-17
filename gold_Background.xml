@@ -1,0 +1,19 @@
+
+<!-- This is used as the background for the GoldWatch layout,
+     providing a border with gold rounded corners -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#c444" />
+    <corners
+        android:radius="8dp"
+        android:topRightRadius="8dp"
+        andr!--oid:bottomRightRadius="8dp"
+        android:bottomLeftRadius="8dp" />
+    <padding android:left="10dp" android:right="10dp" android:top="10dp" android:bottom="10dp"></padding>
+    <stroke
+        android:width="3dp"
+        android:color="#aaffcc00" />
+
+</shape>
